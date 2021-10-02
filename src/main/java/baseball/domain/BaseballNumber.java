@@ -1,5 +1,7 @@
 package baseball.domain;
 
+import java.util.Arrays;
+
 public class BaseballNumber {
 
     private int[] targetNumbers; // 맞춰야할 숫자 배열
@@ -75,6 +77,15 @@ public class BaseballNumber {
             ballCount++;
         }
         return ballCount;
+    }
+
+    /**
+     * inputNumbers의 정답 여부를 반환한다.
+     * @param inputNumbers
+     * @return 정답 여부
+     */
+    public boolean isAnswer(int[] inputNumbers) {
+        return Arrays.equals(targetNumbers, inputNumbers);
     }
 
 }

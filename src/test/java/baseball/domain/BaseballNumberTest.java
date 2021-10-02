@@ -114,4 +114,21 @@ class BaseballNumberTest {
         assertThat(ballCount).isEqualTo(2);
     }
 
+    @Test
+    @DisplayName("inputNumbers의 정답 여부를 반환")
+    void inputNumbers의_정답_여부를_반환() {
+        // given
+        BaseballNumber baseballNumber = new BaseballNumber(new int[] {1, 2, 3});
+        int[] inputNumbers1 = {1, 2, 3};
+        int[] inputNumbers2 = {1, 2, 4};
+
+        // when
+        boolean isAnswer1 = baseballNumber.isAnswer(inputNumbers1);
+        boolean isAnswer2 = baseballNumber.isAnswer(inputNumbers2);
+
+        // then
+        assertThat(isAnswer1).isTrue();
+        assertThat(isAnswer2).isFalse();
+    }
+
 }

@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 import java.lang.reflect.Method;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.in;
 
 class BaseballNumberTest {
 
@@ -60,6 +59,59 @@ class BaseballNumberTest {
 
         // then
         assertThat(strikeCount).isEqualTo(3);
+    }
+
+    @Test
+    @DisplayName("targetIndex와 inputIndex의 값을 기준으로 볼인지 검사")
+    void targetIndex와_inputIndex의_값을_기준으로_볼인지_검사() throws Exception {
+        // given
+        BaseballNumber baseballNumber = new BaseballNumber(new int[] {1, 2, 3});
+        Method checkBall = baseballNumber.getClass().getDeclaredMethod("checkBall", int[].class, int.class, int.class, int.class);
+        checkBall.setAccessible(true);
+
+        int[] inputNumbers = {2, 1, 3};
+        int ballCount = 0;
+        int targetIndex = 0;
+        int inputIndex = 1;
+
+        // when
+        int getBallCount = (int) checkBall.invoke(baseballNumber, inputNumbers, ballCount, targetIndex, inputIndex);
+
+        // then
+        assertThat(getBallCount).isEqualTo(ballCount + 1);
+    }
+
+    @Test
+    @DisplayName("targetIndex를 기준으로 볼이 있는지 검사")
+    void targetIndex를_기준으로_볼이_있는지_검사() throws Exception {
+        // given
+        BaseballNumber baseballNumber = new BaseballNumber(new int[] {1, 2, 3});
+        Method checkBall = baseballNumber.getClass().getDeclaredMethod("checkBall", int[].class, int.class, int.class);
+        checkBall.setAccessible(true);
+
+        int[] inputNumbers = {2, 1, 3};
+        int ballCount = 0;
+        int targetIndex = 0;
+
+        // when
+        int getBallCount = (int) checkBall.invoke(baseballNumber, inputNumbers, ballCount, targetIndex);
+
+        // then
+        assertThat(getBallCount).isEqualTo(ballCount + 1);
+    }
+    
+    @Test
+    @DisplayName("볼 갯수를 조회")
+    void 볼_갯수_조회() {
+        // given
+        BaseballNumber baseballNumber = new BaseballNumber(new int[] {1, 2, 3});
+        int[] inputNumbers = {1, 3, 2};
+
+        // when
+        int ballCount = baseballNumber.getBallCount(inputNumbers);
+
+        // then
+        assertThat(ballCount).isEqualTo(2);
     }
 
 }

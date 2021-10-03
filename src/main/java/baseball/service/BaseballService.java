@@ -25,4 +25,15 @@ public class BaseballService {
         BaseballNumber baseballNumber = BaseballNumber.create(targetNumbers);
         return baseballNumber.getBallCount(inputNumbers);
     }
+
+    /**
+     * 정답 여부를 조회한다.
+     * @param targetNumbers
+     * @param inputNumbers
+     * @return 정답이면 true, 아니면 false
+     */
+    public boolean checkAnswer(int[] targetNumbers, int[] inputNumbers) {
+        BaseballNumber baseballNumber = BaseballNumber.create(targetNumbers);
+        return baseballNumber.isAnswer(inputNumbers);
+    }
 }

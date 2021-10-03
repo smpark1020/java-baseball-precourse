@@ -131,4 +131,18 @@ class BaseballNumberTest {
         assertThat(isAnswer2).isFalse();
     }
 
+    @Test
+    @DisplayName("BaseballNumber 생성")
+    void BaseballNumber_생성() {
+        // given
+        int[] targetNumbers = {1, 2, 3};
+
+        // when
+        BaseballNumber baseballNumber = BaseballNumber.create(targetNumbers);
+
+        // then
+        assertThat(baseballNumber).isNotNull();
+        assertThat(baseballNumber.getTargetNumbers()).isEqualTo(targetNumbers);
+    }
+
 }

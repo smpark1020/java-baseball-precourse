@@ -10,6 +10,19 @@ public class BaseballNumber {
         this.targetNumbers = targetNumbers;
     }
 
+    public int[] getTargetNumbers() {
+        return targetNumbers;
+    }
+
+    /**
+     * BaseballNumber 생성
+     * @param targetNumbers
+     * @return BaseballNumber
+     */
+    public static BaseballNumber create(int[] targetNumbers) {
+        return new BaseballNumber(targetNumbers);
+    }
+
     /**
      * 스트라이크 갯수를 조회한다.
      * @param inputNumbers

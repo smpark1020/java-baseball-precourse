@@ -23,4 +23,17 @@ class BaseballServiceTest {
         assertThat(strikeCount).isEqualTo(1);
     }
 
+    @Test
+    @DisplayName("볼 갯수 조회")
+    void 볼_갯수_조회() {
+        // given
+        int[] targetNumbers = {1, 2, 3};
+        int[] inputNumbers = {1, 3, 2};
+
+        // when
+        int ballCount = baseballService.getBallCount(targetNumbers, inputNumbers);
+
+        // then
+        assertThat(ballCount).isEqualTo(2);
+    }
 }

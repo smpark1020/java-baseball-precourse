@@ -15,4 +15,14 @@ public class BaseballService {
         return baseballNumber.getStrikeCount(inputNumbers);
     }
 
+    /**
+     * 볼 갯수를 조회한다.
+     * @param targetNumbers
+     * @param inputNumbers
+     * @return 볼 갯수
+     */
+    public int getBallCount(int[] targetNumbers, int[] inputNumbers) {
+        BaseballNumber baseballNumber = BaseballNumber.create(targetNumbers);
+        return baseballNumber.getBallCount(inputNumbers);
+    }
 }

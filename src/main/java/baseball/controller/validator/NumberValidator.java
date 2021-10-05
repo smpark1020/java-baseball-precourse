@@ -15,9 +15,9 @@ public class NumberValidator {
      * @throws IllegalArgumentException 중복된 숫자가 존재하는 경우, 입력된 두 숫자배열의 길이가 다른 경우
      */
     public void validate(int[] targetNumbers, int[] inputNumbers) {
+        validateNumbersLength(targetNumbers, inputNumbers);
         validateDuplicateNumber(targetNumbers);
         validateDuplicateNumber(inputNumbers);
-        validateNumbersLength(targetNumbers, inputNumbers);
     }
 
     /**

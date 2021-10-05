@@ -29,7 +29,7 @@ class BaseballControllerTest {
 
     @Test
     @DisplayName("스트라이크 갯수를 조회 - targetNumbers에 중복 숫자 존재")
-    void 스트라이크_갯수를_조회_성공_targetNumbers에_중복_숫자_존재() {
+    void 스트라이크_갯수를_조회_targetNumbers에_중복_숫자_존재() {
         // given
         int[] targetNumbers = {1, 2, 2};
         int[] inputNumbers = {1, 2, 3};
@@ -43,7 +43,7 @@ class BaseballControllerTest {
 
     @Test
     @DisplayName("스트라이크 갯수를 조회 - inputNumbers에 중복 숫자 존재")
-    void 스트라이크_갯수를_조회_성공_inputNumbers에_중복_숫자_존재() {
+    void 스트라이크_갯수를_조회_inputNumbers에_중복_숫자_존재() {
         // given
         int[] targetNumbers = {1, 2, 3};
         int[] inputNumbers = {1, 2, 2};
@@ -57,7 +57,7 @@ class BaseballControllerTest {
 
     @Test
     @DisplayName("스트라이크 갯수를 조회 - 두 숫자의 길이가 다른 경우")
-    void 스트라이크_갯수를_조회_성공_두_숫자의_길이가_다른_경우() {
+    void 스트라이크_갯수를_조회_두_숫자의_길이가_다른_경우() {
         // given
         int[] targetNumbers = {1, 2, 3};
         int[] inputNumbers = {1, 2, 3, 4};
@@ -86,7 +86,7 @@ class BaseballControllerTest {
 
     @Test
     @DisplayName("볼 갯수를 조회 - targetNumbers에 중복 숫자 존재")
-    void 볼_갯수를_조회_성공_targetNumbers에_중복_숫자_존재() {
+    void 볼_갯수를_조회_targetNumbers에_중복_숫자_존재() {
         // given
         int[] targetNumbers = {1, 2, 2};
         int[] inputNumbers = {1, 2, 3};
@@ -100,7 +100,7 @@ class BaseballControllerTest {
 
     @Test
     @DisplayName("볼 갯수를 조회 - inputNumbers에 중복 숫자 존재")
-    void 볼_갯수를_조회_성공_inputNumbers에_중복_숫자_존재() {
+    void 볼_갯수를_조회_inputNumbers에_중복_숫자_존재() {
         // given
         int[] targetNumbers = {1, 2, 3};
         int[] inputNumbers = {1, 2, 2};
@@ -114,7 +114,7 @@ class BaseballControllerTest {
 
     @Test
     @DisplayName("볼 갯수를 조회 - 두 숫자의 길이가 다른 경우")
-    void 볼_갯수를_조회_성공_두_숫자의_길이가_다른_경우() {
+    void 볼_갯수를_조회_두_숫자의_길이가_다른_경우() {
         // given
         int[] targetNumbers = {1, 2, 3};
         int[] inputNumbers = {1, 2, 3, 4};

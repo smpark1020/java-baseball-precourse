@@ -116,7 +116,7 @@ class NumberValidatorTest {
                 .getCause()
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("입력된 두 숫자의 길이가 다릅니다")
-                .hasMessageContaining("타겟 숫자 길이: " + targetNumbers.length)
+                .hasMessageContaining("맞춰야하는 숫자 길이: " + targetNumbers.length)
                 .hasMessageContaining("입력 숫자 길이: " + inputNumbers.length);
     }
 
@@ -170,7 +170,7 @@ class NumberValidatorTest {
         assertThatThrownBy(() -> numberValidator.validate(targetNumbers, inputNumbers))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("입력된 두 숫자의 길이가 다릅니다")
-                .hasMessageContaining("타겟 숫자 길이: " + targetNumbers.length)
+                .hasMessageContaining("맞춰야하는 숫자 길이: " + targetNumbers.length)
                 .hasMessageContaining("입력 숫자 길이: " + inputNumbers.length);
     }
 }

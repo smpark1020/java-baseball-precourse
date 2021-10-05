@@ -29,7 +29,7 @@ public class NumberValidator {
     private void validateNumbersLength(int[] targetNumbers, int[] inputNumbers) {
         if (targetNumbers.length != inputNumbers.length) {
             throw new IllegalArgumentException(
-                    "입력된 두 숫자의 길이가 다릅니다. (타겟 숫자 길이: " + targetNumbers.length + ", 입력 숫자 길이: " + inputNumbers.length + ")");
+                    "입력된 두 숫자의 길이가 다릅니다. (맞춰야하는 숫자 길이: " + targetNumbers.length + ", 입력 숫자 길이: " + inputNumbers.length + ")");
         }
     }
 

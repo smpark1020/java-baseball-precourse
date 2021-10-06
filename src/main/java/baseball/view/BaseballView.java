@@ -23,7 +23,6 @@ public class BaseballView {
      */
     public static boolean baseballStart() {
         int[] targetNumbers = createTargetNumbers();
-        System.out.println(Arrays.toString(targetNumbers));
         boolean isAnswer = false;
         while (!isAnswer) {
             int[] inputNumbers = getInputNumbers();

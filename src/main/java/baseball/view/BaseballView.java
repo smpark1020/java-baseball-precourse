@@ -5,6 +5,7 @@ import baseball.controller.BaseballController;
 import nextstep.utils.Console;
 import nextstep.utils.Randoms;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -22,6 +23,7 @@ public class BaseballView {
      */
     public static boolean baseballStart() {
         int[] targetNumbers = createTargetNumbers();
+        System.out.println(Arrays.toString(targetNumbers));
         boolean isAnswer = false;
         while (!isAnswer) {
             int[] inputNumbers = getInputNumbers();
@@ -150,7 +152,11 @@ public class BaseballView {
         boolean isAnswer = baseballController.checkAnswer(targetNumbers, inputNumbers);
         int strikeCount = baseballController.getStrikeCount(targetNumbers, inputNumbers);
         int ballCount = baseballController.getBallCount(targetNumbers, inputNumbers);
-        printResultMessage(strikeCount, ballCount);
+        if (strikeCount == 0 && ballCount == 0) {
+            System.out.println("낫싱");
+            return isAnswer;
+        }
+        printBaseballCountMessage(strikeCount, ballCount);
         return isAnswer;
     }
 
@@ -158,18 +164,29 @@ public class BaseballView {
      * 사용자로부터 게임 종료 여부를 입력 받는다.
      */
     private static void checkFinish() {
-        while (true) {
+        boolean isFinish = false;
+        while (!isFinish) {
             String inputStr = Console.readLine();
-            if ("1".equals(inputStr)) {
-                return;
-            }
-            if ("2".equals(inputStr)) {
-                IS_FINISH = true;
-                return;
-            }
-            System.out.println("[ERROR] 1과 2만 입력 가능합니다. (입력값: " + inputStr + ")");
-            System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
+            isFinish = checkInputStr(inputStr);
         }
+    }
+
+    /**
+     * 게임 종료 여부 입력 값을 확인한다.
+     * @param inputStr
+     * @return 게임 종료 여부 입력 성공 여부
+     */
+    private static boolean checkInputStr(String inputStr) {
+        if ("1".equals(inputStr)) {
+            return true;
+        }
+        if ("2".equals(inputStr)) {
+            IS_FINISH = true;
+            return true;
+        }
+        System.out.println("[ERROR] 1과 2만 입력 가능합니다. (입력값: " + inputStr + ")");
+        System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
+        return false;
     }
 
     /**
@@ -177,11 +194,7 @@ public class BaseballView {
      * @param strikeCount
      * @param ballCount
      */
-    private static void printResultMessage(int strikeCount, int ballCount) {
-        if (strikeCount == 0 && ballCount == 0) {
-            System.out.println("낫싱");
-            return;
-        }
+    private static void printBaseballCountMessage(int strikeCount, int ballCount) {
         if (strikeCount > 0 && ballCount == 0) {
             System.out.println(strikeCount + "스트라이크");
             return;
